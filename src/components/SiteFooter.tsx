@@ -15,7 +15,15 @@ export function SiteFooter() {
           <p className="eyebrow">Shop</p>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             <li><Link to="/collection" className="hover:text-primary">All fragrances</Link></li>
-            <li><Link to="/virasat" className="hover:text-primary">Virasat — new</Link></li>
+            <li>
+              <Link
+                to="/fragrance/$slug"
+                params={{ slug: "virasat" }}
+                className="hover:text-primary"
+              >
+                Virasat — new
+              </Link>
+            </li>
             <li><Link to="/contact" className="hover:text-primary">Order support</Link></li>
           </ul>
         </div>

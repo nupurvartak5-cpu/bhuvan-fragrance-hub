@@ -4,7 +4,7 @@ import { inr, type Fragrance } from "@/lib/fragrances";
 export function FragranceCard({ fragrance }: { fragrance: Fragrance }) {
   return (
     <Link
-      to="/$slug"
+      to="/fragrance/$slug"
       params={{ slug: fragrance.slug }}
       className="group block border border-border bg-card/40 transition-colors hover:border-primary/60"
     >
