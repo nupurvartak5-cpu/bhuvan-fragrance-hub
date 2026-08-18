@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/hero-bottle.jpg";
 import { FragranceCard } from "@/components/FragranceCard";
-import { fragrances, inr } from "@/lib/fragrances";
+import { fragrances, getFragrance, inr } from "@/lib/fragrances";
 
 const title = "Sarkar Official Store — Virasat, The Fifth Fragrance";
 const description =
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const heroScent = fragrances[0];
+  const heroScent = getFragrance("virasat")!;
   const rest = fragrances.slice(1);
 
   return (

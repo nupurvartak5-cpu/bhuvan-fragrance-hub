@@ -1,13 +1,19 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 
-const nav = [
+type NavItem = {
+  to: "/" | "/collection" | "/about" | "/contact" | "/fragrance/$slug";
+  label: string;
+  params?: { slug: string };
+};
+
+const nav: NavItem[] = [
   { to: "/", label: "Home" },
   { to: "/collection", label: "Collection" },
-  { to: "/fragrance/virasat", label: "Virasat" },
+  { to: "/fragrance/$slug", label: "Virasat", params: { slug: "virasat" } },
   { to: "/about", label: "The House" },
   { to: "/contact", label: "Contact" },
-] as const;
+];
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -21,8 +27,9 @@ export function SiteHeader() {
         <nav className="hidden items-center gap-9 md:flex">
           {nav.map((item) => (
             <Link
-              key={item.to}
+              key={item.label}
               to={item.to}
+              params={item.params as never}
               className="text-[0.68rem] uppercase tracking-[0.24em] text-muted-foreground transition-colors hover:text-primary"
               activeProps={{ className: "text-primary" }}
               activeOptions={{ exact: item.to === "/" }}
@@ -44,8 +51,9 @@ export function SiteHeader() {
         <nav className="flex flex-col gap-1 border-t border-border px-6 pb-6 pt-4 md:hidden">
           {nav.map((item) => (
             <Link
-              key={item.to}
+              key={item.label}
               to={item.to}
+              params={item.params as never}
               onClick={() => setOpen(false)}
               className="py-2 text-[0.7rem] uppercase tracking-[0.24em] text-muted-foreground"
             >
