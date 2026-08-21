@@ -37,9 +37,13 @@ function FragranceDetail() {
       <div className="grid gap-14 md:grid-cols-2">
         <img
           src={fragrance.image}
+          srcSet={`${fragrance.imageSmall} 400w, ${fragrance.image} 800w`}
+          sizes="(max-width: 768px) 100vw, 50vw"
           alt={`${fragrance.name} eau de parfum bottle`}
-          width={900}
-          height={1100}
+          fetchPriority="high"
+          decoding="async"
+          width={800}
+          height={968}
           className="w-full border border-border object-cover"
         />
         <div>
