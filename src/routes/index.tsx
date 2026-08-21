@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import hero1600 from "@/assets/hero-1600.webp";
 import hero1024 from "@/assets/hero-1024.webp";
+import hero800 from "@/assets/hero-800.webp";
 import hero640 from "@/assets/hero-640.webp";
 import { FragranceCard } from "@/components/FragranceCard";
 import { fragrances, getFragrance, inr } from "@/lib/fragrances";
@@ -9,10 +10,12 @@ const title = "Sarkar Official Store — Virasat, The Fifth Fragrance";
 const description =
   "Sarkar fine fragrance. Meet Virasat, the fifth eau de parfum from the house — saffron, Damask rose and oud. Shop all five signature scents.";
 
+const heroSrcSet = `${hero640} 640w, ${hero800} 800w, ${hero1024} 1024w, ${hero1600} 1600w`;
+
 export const Route = createFileRoute("/")({
   head: () => ({
     links: [
-      { rel: "preload", as: "image", href: hero640, imageSrcSet: `${hero640} 640w, ${hero1024} 1024w, ${hero1600} 1600w`, imageSizes: "100vw", fetchPriority: "high" },
+      { rel: "preload", as: "image", href: hero640, imageSrcSet: heroSrcSet, imageSizes: "100vw", fetchPriority: "high" },
     ],
     meta: [
       { title },
@@ -23,6 +26,7 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
+
 
 function Index() {
   const heroScent = getFragrance("virasat")!;
