@@ -1,8 +1,13 @@
-import f1 from "@/assets/f1.jpg";
-import f2 from "@/assets/f2.jpg";
-import f3 from "@/assets/f3.jpg";
-import f4 from "@/assets/f4.jpg";
-import f5 from "@/assets/f5.jpg";
+import f1 from "@/assets/f1-800.webp";
+import f1s from "@/assets/f1-400.webp";
+import f2 from "@/assets/f2-800.webp";
+import f2s from "@/assets/f2-400.webp";
+import f3 from "@/assets/f3-800.webp";
+import f3s from "@/assets/f3-400.webp";
+import f4 from "@/assets/f4-800.webp";
+import f4s from "@/assets/f4-400.webp";
+import f5 from "@/assets/f5-800.webp";
+import f5s from "@/assets/f5-400.webp";
 
 export type Fragrance = {
   slug: string;
@@ -12,6 +17,7 @@ export type Fragrance = {
   price: number;
   size: string;
   image: string;
+  imageSmall: string;
   notes: { top: string; heart: string; base: string };
   story: string;
   isNew?: boolean;
@@ -26,6 +32,7 @@ export const fragrances: Fragrance[] = [
     price: 2499,
     size: "100 ml Eau de Parfum",
     image: f5,
+    imageSmall: f5s,
     isNew: true,
     notes: {
       top: "Kashmiri saffron, pink pepper, bergamot",
@@ -43,6 +50,7 @@ export const fragrances: Fragrance[] = [
     price: 1999,
     size: "100 ml Eau de Parfum",
     image: f1,
+    imageSmall: f1s,
     notes: {
       top: "Clove, cardamom, grapefruit",
       heart: "Oud, cedar, nutmeg",
@@ -59,6 +67,7 @@ export const fragrances: Fragrance[] = [
     price: 1999,
     size: "100 ml Eau de Parfum",
     image: f2,
+    imageSmall: f2s,
     notes: {
       top: "Black pepper, violet leaf",
       heart: "Tobacco leaf, suede, cinnamon",
@@ -75,6 +84,7 @@ export const fragrances: Fragrance[] = [
     price: 1799,
     size: "100 ml Eau de Parfum",
     image: f3,
+    imageSmall: f3s,
     notes: {
       top: "Sicilian lemon, neroli, mandarin",
       heart: "Jasmine, orange blossom, peony",
@@ -91,6 +101,7 @@ export const fragrances: Fragrance[] = [
     price: 1799,
     size: "100 ml Eau de Parfum",
     image: f4,
+    imageSmall: f4s,
     notes: {
       top: "Mint, green apple, basil",
       heart: "Vetiver, lavender, geranium",
