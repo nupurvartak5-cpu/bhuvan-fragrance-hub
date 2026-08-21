@@ -47,7 +47,7 @@ function Index() {
           style={{ backgroundImage: "var(--gradient-noir)" }}
         />
         <div className="absolute inset-0 flex items-end">
-          <div className="mx-auto w-full max-w-6xl px-6 pb-16 fade-up">
+          <div className="mx-auto w-full max-w-6xl px-6 pb-16">
             <p className="eyebrow">Chapter Five · Now Launching</p>
             <h1 className="mt-4 font-display text-6xl leading-none md:text-8xl">
               <span className="text-gold">Virasat</span>
