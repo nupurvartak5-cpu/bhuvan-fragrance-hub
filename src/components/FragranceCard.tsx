@@ -11,10 +11,13 @@ export function FragranceCard({ fragrance }: { fragrance: Fragrance }) {
       <div className="relative overflow-hidden">
         <img
           src={fragrance.image}
+          srcSet={`${fragrance.imageSmall} 400w, ${fragrance.image} 800w`}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           alt={`${fragrance.name} eau de parfum bottle`}
           loading="lazy"
-          width={900}
-          height={1100}
+          decoding="async"
+          width={800}
+          height={968}
           className="h-80 w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         {fragrance.isNew && (

@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import hero from "@/assets/hero-bottle.jpg";
+import hero1600 from "@/assets/hero-1600.webp";
+import hero1024 from "@/assets/hero-1024.webp";
+import hero640 from "@/assets/hero-640.webp";
 import { FragranceCard } from "@/components/FragranceCard";
 import { fragrances, getFragrance, inr } from "@/lib/fragrances";
 
@@ -9,6 +11,9 @@ const description =
 
 export const Route = createFileRoute("/")({
   head: () => ({
+    links: [
+      { rel: "preload", as: "image", href: hero640, imageSrcSet: `${hero640} 640w, ${hero1024} 1024w, ${hero1600} 1600w`, imageSizes: "100vw", fetchPriority: "high" },
+    ],
     meta: [
       { title },
       { name: "description", content: description },
@@ -27,8 +32,12 @@ function Index() {
     <div>
       <section className="relative">
         <img
-          src={hero}
+          src={hero1600}
+          srcSet={`${hero640} 640w, ${hero1024} 1024w, ${hero1600} 1600w`}
+          sizes="100vw"
           alt="Sarkar Virasat perfume bottle on black marble"
+          fetchPriority="high"
+          decoding="async"
           width={1600}
           height={1104}
           className="h-[78vh] w-full object-cover"
@@ -38,7 +47,7 @@ function Index() {
           style={{ backgroundImage: "var(--gradient-noir)" }}
         />
         <div className="absolute inset-0 flex items-end">
-          <div className="mx-auto w-full max-w-6xl px-6 pb-16 fade-up">
+          <div className="mx-auto w-full max-w-6xl px-6 pb-16">
             <p className="eyebrow">Chapter Five · Now Launching</p>
             <h1 className="mt-4 font-display text-6xl leading-none md:text-8xl">
               <span className="text-gold">Virasat</span>
@@ -88,10 +97,13 @@ function Index() {
           </div>
           <img
             src={heroScent.image}
+            srcSet={`${heroScent.imageSmall} 400w, ${heroScent.image} 800w`}
+            sizes="(max-width: 768px) 100vw, 50vw"
             alt="Virasat eau de parfum bottle with saffron and rose"
             loading="lazy"
-            width={912}
-            height={1104}
+            decoding="async"
+            width={800}
+            height={968}
             className="w-full border border-border object-cover"
           />
         </div>
